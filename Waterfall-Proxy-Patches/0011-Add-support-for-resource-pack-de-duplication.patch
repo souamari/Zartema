@@ -1,4 +1,4 @@
-From ea1986ff2859288ff5aa91fdd5ff119efe46abad Mon Sep 17 00:00:00 2001
+From ff04b64671ace8409b40a3b02ba6f4cf99d2f19b Mon Sep 17 00:00:00 2001
 From: mariaum <me@mariaum.com>
 Date: Mon, 29 Apr 2024 03:48:33 -0300
 Subject: [PATCH] Add support for resource pack de-duplication.
@@ -35,7 +35,7 @@ index 2afdd1c9..4ae2acee 100644
 +
  }
 diff --git a/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java b/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java
-index 0edb8c7a..e743eb85 100644
+index 8bd75255..8a61d6b9 100644
 --- a/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java
 +++ b/protocol/src/main/java/net/md_5/bungee/protocol/Protocol.java
 @@ -67,6 +67,9 @@ import net.md_5.bungee.protocol.packet.TitleTimes;
@@ -48,7 +48,7 @@ index 0edb8c7a..e743eb85 100644
  
  public enum Protocol
  {
-@@ -797,6 +800,38 @@ public enum Protocol
+@@ -822,6 +825,38 @@ public enum Protocol
                      map( ProtocolConstants.MINECRAFT_1_21_6, 0x41 ),
                      map( ProtocolConstants.MINECRAFT_26_1, 0x44 )
              );
@@ -87,7 +87,7 @@ index 0edb8c7a..e743eb85 100644
          }
      },
      // 1
-@@ -995,6 +1030,26 @@ public enum Protocol
+@@ -1027,6 +1062,26 @@ public enum Protocol
                      CustomClickAction::new,
                      map( ProtocolConstants.MINECRAFT_1_21_6, 0x08 )
              );
@@ -292,7 +292,7 @@ index 1d20eb06..52e16af6 100644
      @Getter
      private String displayName;
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java b/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java
-index d7172c62..bee4a137 100644
+index 7964c114..939fd52d 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java
 @@ -78,6 +78,9 @@ import net.md_5.bungee.protocol.packet.ServerData;
@@ -330,7 +330,7 @@ index d7172c62..bee4a137 100644
      public String toString()
      {
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
-index 023d4907..7100ddb0 100644
+index 06c4599e..2592def9 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
 @@ -42,6 +42,7 @@ import net.md_5.bungee.protocol.packet.TabCompleteRequest;
@@ -341,7 +341,7 @@ index 023d4907..7100ddb0 100644
  import net.md_5.bungee.util.AllowedCharacters;
  
  public class UpstreamBridge extends PacketHandler
-@@ -429,6 +430,13 @@ public class UpstreamBridge extends PacketHandler
+@@ -433,6 +434,13 @@ public class UpstreamBridge extends PacketHandler
          }
      }
  
