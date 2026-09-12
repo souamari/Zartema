@@ -1,5 +1,5 @@
-From 9de51703a5aa3f110511003a687ae5e500f55bfa Mon Sep 17 00:00:00 2001
-From: Mariaum <me@mariaum.com>
+From 96850546ac3b86a0840698cbd07fd15c351c0938 Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Sat, 13 Oct 2018 00:49:05 -0300
 Subject: [PATCH] Allow control over ServerPing's modinfo
 
@@ -41,7 +41,7 @@ index 29cd91dd..874f1c54 100644
      public String getFavicon()
      {
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
-index e1a9d3a2..1b403518 100644
+index 4be3993a..576f176f 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
 @@ -301,7 +301,8 @@ public class InitialHandler extends PacketHandler implements PendingConnection
@@ -55,5 +55,5 @@ index e1a9d3a2..1b403518 100644
      }
  
 -- 
-2.34.1
+2.43.0
 

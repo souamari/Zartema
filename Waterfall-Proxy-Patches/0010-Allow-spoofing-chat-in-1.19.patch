@@ -1,5 +1,5 @@
-From 548c68ff4b84fa643554ab9c873d5e185b11ba99 Mon Sep 17 00:00:00 2001
-From: mariaum <me@mariaum.com>
+From a62cc1007affd22083ce6d0879f406ca2efc118e Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Sat, 27 Apr 2024 04:08:32 -0300
 Subject: [PATCH] Allow spoofing chat in 1.19+.
 

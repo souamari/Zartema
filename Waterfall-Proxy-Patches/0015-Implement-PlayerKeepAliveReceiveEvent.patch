@@ -1,22 +1,22 @@
-From 1d90cc9dd072819b29fa9f34c5949a1c99f37848 Mon Sep 17 00:00:00 2001
-From: mariaum <me@mariaum.com>
+From f4b8212117ca27e7411f7fe560410d902607a4fb Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Wed, 9 Apr 2025 03:43:10 -0300
 Subject: [PATCH] Implement PlayerKeepAliveReceiveEvent.
 
 
-diff --git a/api/src/main/java/com/mariaum/zartema/event/PlayerKeepAliveReceiveEvent.java b/api/src/main/java/com/mariaum/zartema/event/PlayerKeepAliveReceiveEvent.java
+diff --git a/api/src/main/java/io/github/souamari/zartema/event/PlayerKeepAliveReceiveEvent.java b/api/src/main/java/io/github/souamari/zartema/event/PlayerKeepAliveReceiveEvent.java
 new file mode 100644
-index 00000000..c34cbe77
+index 00000000..1a9971fd
 --- /dev/null
-+++ b/api/src/main/java/com/mariaum/zartema/event/PlayerKeepAliveReceiveEvent.java
++++ b/api/src/main/java/io/github/souamari/zartema/event/PlayerKeepAliveReceiveEvent.java
 @@ -0,0 +1,27 @@
-+package com.mariaum.zartema.event;
++package io.github.souamari.zartema.event;
 +
 +import net.md_5.bungee.api.connection.ProxiedPlayer;
 +import net.md_5.bungee.api.plugin.Event;
 +
 +/**
-+ * Written by mariaum <mariaumhere@gmail.com>, 09 Apr 2025
++ * Written by mari <maricantdecide@gmail.com>, 09 Apr 2025
 + */
 +public final class PlayerKeepAliveReceiveEvent extends Event {
 +
@@ -38,22 +38,14 @@ index 00000000..c34cbe77
 +
 +}
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
-index 06c4599e..a830e07f 100644
+index 06c4599e..bbc98ffd 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
-@@ -1,6 +1,7 @@
- package net.md_5.bungee.connection;
- 
- import com.google.common.base.Preconditions;
-+import com.mariaum.zartema.event.PlayerKeepAliveReceiveEvent;
- import com.mojang.brigadier.context.StringRange;
- import com.mojang.brigadier.suggestion.Suggestion;
- import com.mojang.brigadier.suggestion.Suggestions;
-@@ -140,6 +141,7 @@ public class UpstreamBridge extends PacketHandler
+@@ -140,6 +140,7 @@ public class UpstreamBridge extends PacketHandler
              int newPing = (int) ( System.currentTimeMillis() - keepAliveData.getTime() );
              con.getTabListHandler().onPingChange( newPing );
              con.setPing( newPing );
-+            bungee.getPluginManager().callEvent(new PlayerKeepAliveReceiveEvent(con, newPing)); // Zartema
++            bungee.getPluginManager().callEvent(new io.github.souamari.zartema.event.PlayerKeepAliveReceiveEvent(con, newPing)); // Zartema
          } else
          {
              throw CancelSendSignal.INSTANCE;

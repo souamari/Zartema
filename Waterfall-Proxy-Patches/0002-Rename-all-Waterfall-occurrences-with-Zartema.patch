@@ -1,5 +1,5 @@
-From 2078367902746284c378f672fd19a1f0d9be88c2 Mon Sep 17 00:00:00 2001
-From: Mariaum <me@mariaum.com>
+From 5515423392374f12e176d1a22c41a65aef69ed8d Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Sat, 13 Oct 2018 00:31:10 -0300
 Subject: [PATCH] Rename all Waterfall occurrences with Zartema
 
@@ -18,7 +18,7 @@ index cbb740c9..597f6cca 100644
              return;
          }
 diff --git a/chat/pom.xml b/chat/pom.xml
-index 592f8747..44142261 100644
+index 31758f6c..3bc0de74 100644
 --- a/chat/pom.xml
 +++ b/chat/pom.xml
 @@ -16,7 +16,7 @@

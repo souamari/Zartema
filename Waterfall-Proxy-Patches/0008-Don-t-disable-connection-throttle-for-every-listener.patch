@@ -1,5 +1,5 @@
-From 658cd230bcfeb07e50a9295267aa6c7efa8fa428 Mon Sep 17 00:00:00 2001
-From: Mariaum <me@mariaum.com>
+From 072649e82e264b0243d2fc8795d7ebfd392fc925 Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Thu, 5 Nov 2020 21:33:37 -0300
 Subject: [PATCH] Don't disable connection throttle for every listener when
  using proxy protocol.
@@ -25,7 +25,7 @@ index 3c9570d5..1a534ff7 100644
  
              ChannelFutureListener listener = new ChannelFutureListener()
 diff --git a/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java b/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java
-index cb216a8c..2ba47b6e 100644
+index 937c0028..c80bc045 100644
 --- a/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java
 +++ b/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java
 @@ -65,13 +65,14 @@ public class PipelineUtils
@@ -47,5 +47,5 @@ index cb216a8c..2ba47b6e 100644
              if ( BungeeCord.getInstance().getPluginManager().callEvent( new ClientConnectEvent( remoteAddress, listener ) ).isCancelled() )
              {
 -- 
-2.34.1
+2.43.0
 

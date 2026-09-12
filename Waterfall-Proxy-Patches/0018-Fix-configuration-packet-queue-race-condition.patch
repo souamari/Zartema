@@ -1,5 +1,5 @@
-From f87534c801addee542f736cad30219d4d976d084 Mon Sep 17 00:00:00 2001
-From: mariaum <me@mariaum.com>
+From 5beb0432078a2b97bc9e6b4037a21b84fc9cedf7 Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Wed, 8 Jul 2026 11:36:21 -0300
 Subject: [PATCH] Fix configuration packet queue race condition.
 

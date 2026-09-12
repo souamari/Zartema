@@ -1,21 +1,21 @@
-From 43732537f7d939ec0e0fd182b58081029e37fdc8 Mon Sep 17 00:00:00 2001
-From: Mariaum <me@mariaum.com>
+From 0a0ff6abcaf11bcf26173b92b7db56df6baf6528 Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Mon, 26 Sep 2022 05:04:29 -0300
 Subject: [PATCH] Implement ConnectionErrorHandler.
 
 
-diff --git a/proxy/src/main/java/com/mariaum/zartema/ConnectionErrorHandler.java b/proxy/src/main/java/com/mariaum/zartema/ConnectionErrorHandler.java
+diff --git a/proxy/src/main/java/io/github/souamari/zartema/ConnectionErrorHandler.java b/proxy/src/main/java/io/github/souamari/zartema/ConnectionErrorHandler.java
 new file mode 100644
-index 00000000..d045bf30
+index 00000000..0ff8a284
 --- /dev/null
-+++ b/proxy/src/main/java/com/mariaum/zartema/ConnectionErrorHandler.java
++++ b/proxy/src/main/java/io/github/souamari/zartema/ConnectionErrorHandler.java
 @@ -0,0 +1,22 @@
-+package com.mariaum.zartema;
++package io.github.souamari.zartema;
 +
 +import java.net.InetSocketAddress;
 +
 +/**
-+ * Written by Mariaum <mariaum@mushmc.com.br>, 26 Sep 2022
++ * Written by mari <maricantdecide@gmail.com>, 26 Sep 2022
 + */
 +public abstract class ConnectionErrorHandler {
 +
@@ -33,7 +33,7 @@ index 00000000..d045bf30
 +
 +}
 diff --git a/proxy/src/main/java/net/md_5/bungee/BungeeCord.java b/proxy/src/main/java/net/md_5/bungee/BungeeCord.java
-index 1a534ff7..25d40537 100644
+index 1a534ff7..556fc4ba 100644
 --- a/proxy/src/main/java/net/md_5/bungee/BungeeCord.java
 +++ b/proxy/src/main/java/net/md_5/bungee/BungeeCord.java
 @@ -153,6 +153,9 @@ public class BungeeCord extends ProxyServer
@@ -42,22 +42,22 @@ index 1a534ff7..25d40537 100644
      private final ModuleManager moduleManager = new ModuleManager();
 +    @Getter
 +    @Setter
-+    private com.mariaum.zartema.ConnectionErrorHandler connectionErrorHandler = com.mariaum.zartema.ConnectionErrorHandler.EMPTY;
++    private io.github.souamari.zartema.ConnectionErrorHandler connectionErrorHandler = io.github.souamari.zartema.ConnectionErrorHandler.EMPTY;
  
      {
          // TODO: Proper fallback when we interface the manager
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
-index eadec3b6..ebf7d485 100644
+index 576f176f..174098a7 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/InitialHandler.java
 @@ -199,6 +199,7 @@ public class InitialHandler extends PacketHandler implements PendingConnection
      {
          if ( packet.packet == null )
          {
-+            BungeeCord.getInstance().getConnectionErrorHandler().handle( this.getAddress(), com.mariaum.zartema.ConnectionErrorHandler.Type.UNEXPECTED_PACKET );
++            BungeeCord.getInstance().getConnectionErrorHandler().handle( this.getAddress(), io.github.souamari.zartema.ConnectionErrorHandler.Type.UNEXPECTED_PACKET );
              throw new QuietException( "Unexpected packet received during login process! " + BufUtil.dump( packet.buf, 16 ) );
          }
      }
 -- 
-2.34.1
+2.43.0
 

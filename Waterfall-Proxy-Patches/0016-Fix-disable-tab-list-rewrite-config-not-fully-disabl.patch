@@ -1,5 +1,5 @@
-From 8756dead7ae081e0f24ac58c9cdbae48c8874108 Mon Sep 17 00:00:00 2001
-From: mariaum <me@mariaum.com>
+From 5debefd60952e70e20d45e4975f361c26642c6f4 Mon Sep 17 00:00:00 2001
+From: mari <maricantdecide@gmail.com>
 Date: Tue, 15 Apr 2025 17:51:30 -0300
 Subject: [PATCH] Fix disable tab list rewrite config not fully disabling
  rewrites.
