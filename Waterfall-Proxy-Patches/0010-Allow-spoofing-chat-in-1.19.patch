@@ -1,4 +1,4 @@
-From a62cc1007affd22083ce6d0879f406ca2efc118e Mon Sep 17 00:00:00 2001
+From f4022fa0e8927cb3abc0cb991cbcdfb34a5aeae1 Mon Sep 17 00:00:00 2001
 From: mari <maricantdecide@gmail.com>
 Date: Sat, 27 Apr 2024 04:08:32 -0300
 Subject: [PATCH] Allow spoofing chat in 1.19+.
@@ -6,19 +6,22 @@ Subject: [PATCH] Allow spoofing chat in 1.19+.
 Should work with ViaVersion at least.
 
 diff --git a/proxy/src/main/java/net/md_5/bungee/UserConnection.java b/proxy/src/main/java/net/md_5/bungee/UserConnection.java
-index b917c6ec..1d20eb06 100644
+index b917c6ec..c2a7fcb6 100644
 --- a/proxy/src/main/java/net/md_5/bungee/UserConnection.java
 +++ b/proxy/src/main/java/net/md_5/bungee/UserConnection.java
-@@ -514,7 +514,8 @@ public final class UserConnection implements ProxiedPlayer
+@@ -514,9 +514,10 @@ public final class UserConnection implements ProxiedPlayer
          Preconditions.checkState( server != null, "Not connected to server" );
          if ( getPendingConnection().getVersion() >= ProtocolConstants.MINECRAFT_1_19 )
          {
 -            throw new UnsupportedOperationException( "Cannot spoof chat on this client version!" );
-+            server.getCh().write( new net.md_5.bungee.protocol.packet.ClientChat( message, 0, 0, new byte[256], false, new net.md_5.bungee.protocol.data.ChatChain( com.google.common.collect.ImmutableList.of(), com.google.common.collect.ImmutableList.of() ), new net.md_5.bungee.protocol.data.SeenMessages( 0, new java.util.BitSet() ), (byte) 0 ) ); // Zartema - Allow spoofing chat in 1.19+.
++            server.sendPacketQueued( new net.md_5.bungee.protocol.packet.ClientChat( message, 0, 0, new byte[256], false, new net.md_5.bungee.protocol.data.ChatChain( com.google.common.collect.ImmutableList.of(), com.google.common.collect.ImmutableList.of() ), new net.md_5.bungee.protocol.data.SeenMessages( 0, new java.util.BitSet() ), (byte) 0 ) ); // Zartema - Allow spoofing chat in 1.19+.
 +            return;
          }
-         server.getCh().write( new Chat( message ) );
+-        server.getCh().write( new Chat( message ) );
++        server.sendPacketQueued( new Chat( message ) );
      }
+ 
+     @Override
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
 index abb5a3d9..06c4599e 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
