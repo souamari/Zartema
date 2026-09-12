@@ -1,4 +1,4 @@
-From bf56b1662c173e9f07e771c3896fd692b2588eba Mon Sep 17 00:00:00 2001
+From 1d90cc9dd072819b29fa9f34c5949a1c99f37848 Mon Sep 17 00:00:00 2001
 From: mariaum <me@mariaum.com>
 Date: Wed, 9 Apr 2025 03:43:10 -0300
 Subject: [PATCH] Implement PlayerKeepAliveReceiveEvent.
@@ -38,7 +38,7 @@ index 00000000..c34cbe77
 +
 +}
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
-index 2592def9..0cdafc66 100644
+index 06c4599e..a830e07f 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/UpstreamBridge.java
 @@ -1,6 +1,7 @@
@@ -49,7 +49,7 @@ index 2592def9..0cdafc66 100644
  import com.mojang.brigadier.context.StringRange;
  import com.mojang.brigadier.suggestion.Suggestion;
  import com.mojang.brigadier.suggestion.Suggestions;
-@@ -141,6 +142,7 @@ public class UpstreamBridge extends PacketHandler
+@@ -140,6 +141,7 @@ public class UpstreamBridge extends PacketHandler
              int newPing = (int) ( System.currentTimeMillis() - keepAliveData.getTime() );
              con.getTabListHandler().onPingChange( newPing );
              con.setPing( newPing );

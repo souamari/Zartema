@@ -1,14 +1,14 @@
-From ac2cf0988a801d5f76dc3e2d77229756f16a9352 Mon Sep 17 00:00:00 2001
+From de03bdb66ebea77c50e9f1e17f5008ad5d2e7cc3 Mon Sep 17 00:00:00 2001
 From: mariaum <me@mariaum.com>
 Date: Fri, 31 Jan 2025 19:46:43 -0300
 Subject: [PATCH] Re-add old DownstreamBridge behavior.
 
 
 diff --git a/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java b/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java
-index 38a23a91..5e3c1299 100644
+index 7964c114..9b86055e 100644
 --- a/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java
 +++ b/proxy/src/main/java/net/md_5/bungee/connection/DownstreamBridge.java
-@@ -108,15 +108,17 @@ public class DownstreamBridge extends PacketHandler
+@@ -105,15 +105,17 @@ public class DownstreamBridge extends PacketHandler
          }
  
          ServerInfo def = con.updateAndGetNextServer( server.getInfo() );
@@ -30,7 +30,7 @@ index 38a23a91..5e3c1299 100644
      }
  
      @Override
-@@ -139,15 +141,17 @@ public class DownstreamBridge extends PacketHandler
+@@ -136,15 +138,17 @@ public class DownstreamBridge extends PacketHandler
          }
  
          ServerInfo def = con.updateAndGetNextServer( server.getInfo() );

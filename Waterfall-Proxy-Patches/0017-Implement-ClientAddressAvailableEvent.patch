@@ -1,4 +1,4 @@
-From 36538f3583cb03e6ae1d6d558dbbccc64bcf8f98 Mon Sep 17 00:00:00 2001
+From bcd779b51819dca048e25bfa0733c4f88d9a1bc7 Mon Sep 17 00:00:00 2001
 From: mariaum <me@mariaum.com>
 Date: Tue, 10 Mar 2026 21:40:50 -0300
 Subject: [PATCH] Implement ClientAddressAvailableEvent.
@@ -56,7 +56,7 @@ index c336f1b3..969c2db4 100644
                  {
                      healthCheck = true;
 diff --git a/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java b/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java
-index 2ba47b6e..a2be36d4 100644
+index c80bc045..b90e3653 100644
 --- a/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java
 +++ b/proxy/src/main/java/net/md_5/bungee/netty/PipelineUtils.java
 @@ -78,6 +78,15 @@ public class PipelineUtils
@@ -76,5 +76,5 @@ index 2ba47b6e..a2be36d4 100644
              io.github.waterfallmc.waterfall.event.ConnectionInitEvent connectionInitEvent = new io.github.waterfallmc.waterfall.event.ConnectionInitEvent(ch.remoteAddress(), listener, (result, throwable) -> { // Waterfall
  
 -- 
-2.51.0.windows.1
+2.43.0
 
