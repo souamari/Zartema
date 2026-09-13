@@ -1,4 +1,4 @@
-From db8b199d5137e6694b9e1747a169c45a16baa036 Mon Sep 17 00:00:00 2001
+From 56765a57fd4275676b0765c805eacacf07531507 Mon Sep 17 00:00:00 2001
 From: mari <maricantdecide@gmail.com>
 Date: Sat, 13 Oct 2018 00:27:11 -0300
 Subject: [PATCH] POM renaming
@@ -84,10 +84,10 @@ index 4030c6c8..dfa1ecfb 100644
              <!-- not part of the API proper -->
              <scope>provided</scope>
 diff --git a/bootstrap/pom.xml b/bootstrap/pom.xml
-index d037f343..ae4911b1 100644
+index d037f343..bcf345f1 100644
 --- a/bootstrap/pom.xml
 +++ b/bootstrap/pom.xml
-@@ -4,19 +4,19 @@
+@@ -4,23 +4,21 @@
      <modelVersion>4.0.0</modelVersion>
  
      <parent>
@@ -112,8 +112,12 @@ index d037f343..ae4911b1 100644
 +    <description>Java 1.6 loader for Zartema</description>
  
      <properties>
-         <skipPublishing>true</skipPublishing>
-@@ -28,15 +28,15 @@
+-        <skipPublishing>true</skipPublishing>
+-        <maven.deploy.skip>true</maven.deploy.skip>
+         <maven.javadoc.skip>true</maven.javadoc.skip>
+         <maven.compiler.release>11</maven.compiler.release>
+         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+@@ -28,15 +26,15 @@
  
      <dependencies>
          <dependency>
@@ -494,7 +498,7 @@ index 7aeabfef..a10cc9b7 100644
      <packaging>jar</packaging>
  
 diff --git a/module/pom.xml b/module/pom.xml
-index 279ef27a..16d37a53 100644
+index 279ef27a..8fdaae1a 100644
 --- a/module/pom.xml
 +++ b/module/pom.xml
 @@ -4,19 +4,19 @@
@@ -523,16 +527,16 @@ index 279ef27a..16d37a53 100644
  
      <modules>
          <module>cmd-alert</module>
-@@ -29,7 +29,7 @@
+@@ -29,16 +29,14 @@
      </modules>
  
      <properties>
 -        <module.author>WaterfallMC</module.author>
+-        <skipPublishing>true</skipPublishing>
+-        <maven.deploy.skip>true</maven.deploy.skip>
 +        <module.author>Zartema</module.author>
-         <skipPublishing>true</skipPublishing>
-         <maven.deploy.skip>true</maven.deploy.skip>
          <maven.javadoc.skip>true</maven.javadoc.skip>
-@@ -37,8 +37,8 @@
+     </properties>
  
      <dependencies>
          <dependency>
@@ -768,10 +772,10 @@ index f8d3a4dc..94cd0aeb 100644
              <scope>compile</scope>
          </dependency>
 diff --git a/proxy/pom.xml b/proxy/pom.xml
-index 81e42070..8764ca8b 100644
+index 81e42070..2940be5f 100644
 --- a/proxy/pom.xml
 +++ b/proxy/pom.xml
-@@ -4,18 +4,18 @@
+@@ -4,23 +4,21 @@
      <modelVersion>4.0.0</modelVersion>
  
      <parent>
@@ -795,7 +799,12 @@ index 81e42070..8764ca8b 100644
      <description>Proxy component of the Elastic Portal Suite</description>
  
      <properties>
-@@ -78,32 +78,32 @@
+-        <skipPublishing>true</skipPublishing>
+-        <maven.deploy.skip>true</maven.deploy.skip>
+         <maven.javadoc.skip>true</maven.javadoc.skip>
+     </properties>
+ 
+@@ -78,32 +76,32 @@
              <scope>compile</scope>
          </dependency>
          <dependency>
@@ -838,7 +847,7 @@ index 81e42070..8764ca8b 100644
              <version>${project.version}</version>
              <scope>compile</scope>
          </dependency>
-@@ -128,8 +128,8 @@
+@@ -128,8 +126,8 @@
          </dependency>
          <!-- add back in as not exposed by the API -->
          <dependency>
@@ -936,6 +945,19 @@ index 58048e8c..c54ae3da 100644
              <version>${project.version}</version>
              <scope>compile</scope>
          </dependency>
+diff --git a/slf4j/pom.xml b/slf4j/pom.xml
+index 30efeb47..3307a306 100644
+--- a/slf4j/pom.xml
++++ b/slf4j/pom.xml
+@@ -20,8 +20,6 @@
+ 
+     <properties>
+         <checkstyle.skip>true</checkstyle.skip>
+-        <skipPublishing>true</skipPublishing>
+-        <maven.deploy.skip>true</maven.deploy.skip>
+         <maven.javadoc.skip>true</maven.javadoc.skip>
+     </properties>
+ 
 -- 
 2.43.0
 
