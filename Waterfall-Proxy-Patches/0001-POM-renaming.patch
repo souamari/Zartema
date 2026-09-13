@@ -1,4 +1,4 @@
-From 99db2910fc1490ef4bf96c19cc06aa40475f89fe Mon Sep 17 00:00:00 2001
+From db8b199d5137e6694b9e1747a169c45a16baa036 Mon Sep 17 00:00:00 2001
 From: mari <maricantdecide@gmail.com>
 Date: Sat, 13 Oct 2018 00:27:11 -0300
 Subject: [PATCH] POM renaming
@@ -627,20 +627,19 @@ index be74fd49..b5d6d322 100644
          <license>
              <name>BSD-3-Clause</name>
 diff --git a/pom.xml b/pom.xml
-index 5edd72e5..337693a8 100644
+index 5edd72e5..d9d16a78 100644
 --- a/pom.xml
 +++ b/pom.xml
-@@ -4,24 +4,19 @@
+@@ -3,25 +3,14 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
      <modelVersion>4.0.0</modelVersion>
  
-     <parent>
+-    <parent>
 -        <groupId>io.github.waterfallmc</groupId>
 -        <artifactId>waterfall-super</artifactId>
-+        <groupId>io.github.souamari</groupId>
-+        <artifactId>zartema-super</artifactId>
-         <version>26.1-R0.1-SNAPSHOT</version>
-         <relativePath>../pom.xml</relativePath>
-     </parent>
+-        <version>26.1-R0.1-SNAPSHOT</version>
+-        <relativePath>../pom.xml</relativePath>
+-    </parent>
 -    <groupId>io.github.waterfallmc</groupId>
 -    <artifactId>waterfall-parent</artifactId>
 +    <groupId>io.github.souamari</groupId>
@@ -662,7 +661,7 @@ index 5edd72e5..337693a8 100644
      <licenses>
          <license>
              <name>Modified BSD 3-Clause License</name>
-@@ -30,27 +25,6 @@
+@@ -30,27 +19,6 @@
          </license>
      </licenses>
  
@@ -690,7 +689,7 @@ index 5edd72e5..337693a8 100644
      <modules>
          <module>api</module>
          <module>bootstrap</module>
-@@ -71,27 +45,6 @@
+@@ -71,25 +39,12 @@
          <module>nbt</module>
      </modules>
  
@@ -704,20 +703,21 @@ index 5edd72e5..337693a8 100644
 -        <url>https://github.com/PaperMC/Waterfall/issues</url>
 -    </issueManagement>
 -
--    <distributionManagement>
--        <repository>
+     <distributionManagement>
+         <repository>
 -            <id>papermc-releases</id>
 -            <url>https://artifactory.papermc.io/artifactory/releases/</url>
--        </repository>
++            <id>mush-dev-public</id>
++            <name>Mush Dev</name>
++            <url>https://devrepo.mush.com.br/public</url>
+         </repository>
 -        <snapshotRepository>
 -            <id>papermc-snapshots</id>
 -            <url>https://artifactory.papermc.io/artifactory/snapshots/</url>
 -        </snapshotRepository>
--    </distributionManagement>
--
+     </distributionManagement>
+ 
      <properties>
-         <build.number>unknown</build.number>
-         <lombok.version>1.18.46</lombok.version>
 diff --git a/protocol/pom.xml b/protocol/pom.xml
 index f8d3a4dc..94cd0aeb 100644
 --- a/protocol/pom.xml
